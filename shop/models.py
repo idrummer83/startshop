@@ -13,7 +13,8 @@ class productCategory(models.Model):
     name = models.CharField('наименование категории', max_length=250)
     slug = models.SlugField(verbose_name='Slug', max_length=64, unique=True)
     published = models.BooleanField(verbose_name='Опубликовано', default=True)
-    image = models.ForeignKey(baseImage, on_delete=models.CASCADE, related_name='product_image', upload_to='product_photo', verbose_name='изображение категории')
+    image = models.ForeignKey(baseImage, on_delete=models.CASCADE, related_name='product_image', verbose_name='изображение категории')
+    # image = FilerImageField(verbose_name='Изображение категории', related_name='product_image', null=True, blank=True)
     description = RichTextField(verbose_name='Описание', null=True, blank=True)
 
     class Meta:

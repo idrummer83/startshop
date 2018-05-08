@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'filer',
+    'easy_thumbnails',
+    'ckeditor',
+    'tabbed_admin',
+
     'shop.apps.ShopConfig',
 ]
 
@@ -114,6 +119,16 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+CKEDITOR_CONFIGS = {
+        'default': {
+            'toolbar': 'Full',
+            "extraPlugins":'codesnippet',
+            "codeSnippet_theme": "monokai_sublime",
+            'skin': 'moono-dark',
+        },
+    }
 
 
 # Static files (CSS, JavaScript, Images)
