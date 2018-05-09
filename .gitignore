@@ -17,3 +17,5 @@ _book
 /venv/
 /.gitignore
 /.idea
+/.startshop/media
+/.startshop/static
