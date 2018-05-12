@@ -18,11 +18,12 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
-# from django.urls import path
-from shop.views import start
+from shop.views import start, category, product
 
 urlpatterns = [
     url(r'^$', start),
+    url(r'^category/', category),
+    url(r'^product/', product),
     url('admin/', admin.site.urls),
 ]
 
