@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.conf import settings
-from django.conf.urls import url
+from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 # from django.urls import path
 from shop.views import start
@@ -23,4 +24,14 @@ from shop.views import start
 urlpatterns = [
     url(r'^$', start),
     url('admin/', admin.site.urls),
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    try:
+        import debug_toolbar
+        urlpatterns += i18n_patterns(url(r'^__debug__/', include(debug_toolbar.urls)), )
+    except:
+        pass
+
