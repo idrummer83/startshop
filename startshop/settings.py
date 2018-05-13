@@ -125,14 +125,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-CKEDITOR_CONFIGS = {
-        'default': {
-            'toolbar': 'Full',
-            "extraPlugins":'codesnippet',
-            "codeSnippet_theme": "monokai_sublime",
-            'skin': 'moono-dark',
-        },
-    }
+# CKEDITOR_CONFIGS = {
+#         'default': {
+#             'toolbar': 'Full',
+#             "extraPlugins":'codesnippet',
+#             "codeSnippet_theme": "monokai_sublime",
+#             'skin': 'moono-dark',
+#         },
+#     }
 
 
 # Static files (CSS, JavaScript, Images)

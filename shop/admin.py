@@ -13,10 +13,10 @@ class baseImageAdmin(admin.ModelAdmin):
 
 @admin.register(productCategory)
 class productCategoryAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'published', 'image', 'description')
+    list_display = ('id', 'name', 'slug', 'published')
 
 
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'published', 'image', 'description', 'long_description')
+    list_display = ('id', 'name', 'slug', 'published', 'description')
