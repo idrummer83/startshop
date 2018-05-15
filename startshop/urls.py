@@ -19,9 +19,13 @@ from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from shop.views import start, category, product
+from account import views as accounts_views
+
+
 
 urlpatterns = [
-    url(r'^$', start),
+    url(r'^$', start, name='start'),
+    url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^category/', category),
     url(r'^product/', product),
     url('admin/', admin.site.urls),

@@ -5,7 +5,7 @@ from django.db import models
 class User(models.Model):
     name = models.CharField(max_length=150, verbose_name='name')
     email = models.EmailField(max_length=254, verbose_name='email')
-    password = models.IntegerField(max_length=10, verbose_name='password')
+    password = models.IntegerField(verbose_name='password')
 
     class Meta:
         verbose_name = 'Пользователь'
