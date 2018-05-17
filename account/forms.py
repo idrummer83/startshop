@@ -9,15 +9,3 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'password1', 'password2')
-
-
-#
-# def createAccount(request):
-#     if request.method == 'POST':
-#         name = request.GET['name']
-#         email = request.GET['email']
-#         password = request.GET['password']
-#         name.save()
-#         email.save()
-#         password.save()
-#         return render(request, '/')

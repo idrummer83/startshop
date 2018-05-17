@@ -20,12 +20,15 @@ from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from shop.views import start, category, product
 from account import views as accounts_views
+from django.contrib.auth import views as auth_views
 
 
 
 urlpatterns = [
     url(r'^$', start, name='start'),
     url(r'^signup/$', accounts_views.signup, name='signup'),
+url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
     url(r'^category/', category),
     url(r'^product/', product),
     url('admin/', admin.site.urls),

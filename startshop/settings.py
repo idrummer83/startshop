@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'widget_tweaks',
     'filer',
     'easy_thumbnails',
     'ckeditor',
@@ -125,6 +124,10 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+LOGOUT_REDIRECT_URL = 'start'
+LOGIN_REDIRECT_URL = 'start'
 
 
 # CKEDITOR_CONFIGS = {
