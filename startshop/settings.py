@@ -128,6 +128,9 @@ USE_TZ = True
 
 LOGOUT_REDIRECT_URL = 'start'
 LOGIN_REDIRECT_URL = 'start'
+LOGIN_URL = 'login'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 
 # CKEDITOR_CONFIGS = {

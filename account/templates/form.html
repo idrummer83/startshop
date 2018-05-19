@@ -1,4 +1,5 @@
 {#{% load widget_tweaks %}#}
+{% load form_tags %}
 
 {% if form.non_field_errors %}
   <div class="alert alert-danger" role="alert">
@@ -12,9 +13,11 @@
   <div class="form-group">
     {{ field.label_tag }}
     {{ field }}
-    {{ field.errors }}
-
-    <!-- code suppressed for brevity -->
+    {% for error in field.errors %}
+      <div class="invalid-feedback">
+        {{ error }}
+      </div>
+    {% endfor %}
 
     {% if field.help_text %}
       <small class="form-text text-muted alert alert-danger">

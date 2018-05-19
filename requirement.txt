@@ -5,7 +5,10 @@ django-js-asset==1.1.0
 django-mptt==0.8.7
 django-polymorphic==2.0.2
 django-tabbed-admin==1.0.3
+django-widget-tweaks==1.4.2
 easy-thumbnails==2.5
+MarkupSafe==1.0
+Markdown==2.6.9
 Pillow==5.1.0
 pytz==2018.4
 Unidecode==0.4.21
