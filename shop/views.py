@@ -1,9 +1,13 @@
 from django.shortcuts import render
+from shop.models import productCategory
 
 # Create your views here.
 
 def start(request):
-    return  render(request, 'index.html', context={})
+    context = {
+        'pCategory': productCategory.objects.all()
+    }
+    return  render(request, 'index.html', context)
 
 
 def category(request):

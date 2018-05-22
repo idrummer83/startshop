@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load thumbnail %}
 
 {% block content %}
     <header>
@@ -49,39 +50,23 @@
 
       <!-- Marketing Icons Section -->
       <div class="row">
+          {% for c in pCategory %}
         <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 mb-4">
-          <div class="card h-100">
-            <h4 class="card-header">Card Title</h4>
-            <div class="card-body">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-            </div>
-            <div class="card-footer">
-              <a href="#" class="btn btn-primary">Learn More</a>
-            </div>
-          </div>
-        </div>
+                <div class="card h-100">
+                    <h4 class="card-header">{{ c.name }}</h4>
+                      <a href="#">
+                          {% thumbnail productCategory.image 250x250 crop %}
+{#                          <img class="w-100" src="{{ c.image.url }}" alt="">#}
+                      </a>
+                    <div class="card-body">
+                      <p class="card-text">{{ c.description|safe }}</p>
+                    </div>
+                    <div class="card-footer">
+                      <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                  </div>
+              </div>
+            {% endfor %}
       </div>
       <!-- /.row -->
 

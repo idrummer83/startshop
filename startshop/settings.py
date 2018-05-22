@@ -153,3 +153,15 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# For easy_thumbnails to support retina displays (recent MacBooks, iOS) add to settings.py:
+THUMBNAIL_HIGH_RESOLUTION = True
+
+# To enable automatic subject location aware cropping of images replace easy_thumbnails.processors.scale_and_crop with filer.thumbnail_processors.scale_and_crop_with_subject_location:
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
