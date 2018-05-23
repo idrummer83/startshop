@@ -55,8 +55,7 @@
                 <div class="card h-100">
                     <h4 class="card-header">{{ c.name }}</h4>
                       <a href="#">
-                          {% thumbnail productCategory.image 250x250 crop %}
-{#                          <img class="w-100" src="{{ c.image.url }}" alt="">#}
+                          <img src="{{ c.image|thumbnail_url:'categories' }}" alt="" />
                       </a>
                     <div class="card-body">
                       <p class="card-text">{{ c.description|safe }}</p>
@@ -76,7 +75,7 @@
       <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
           <div class="card h-100">
-            <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+{#            <a href="{% url('product') %}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>#}
             <div class="card-body">
               <h4 class="card-title">
                 <a href="#">Project One</a>

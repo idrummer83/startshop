@@ -54,8 +54,8 @@ url(r'^settings/password/done/$', auth_views.PasswordChangeDoneView.as_view(temp
     name='password_change_done'),
 
 
-    url(r'^category/', category),
-    url(r'^product/', product),
+    url(r'^category/', category, name='category'),
+    url(r'^product/', product, name='product'),
     url('admin/', admin.site.urls),
 ]
 

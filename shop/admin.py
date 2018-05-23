@@ -6,9 +6,9 @@ from .models import *
 
 # Register your models here.
 
-@admin.register(baseImage)
-class baseImageAdmin(admin.ModelAdmin):
-    pass
+# @admin.register(baseImage)
+# class baseImageAdmin(admin.ModelAdmin):
+#     pass
 
 
 @admin.register(productCategory)
