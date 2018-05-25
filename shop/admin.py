@@ -19,4 +19,4 @@ class productCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'published', 'description')
+    list_display = ('id', 'category', 'name', 'slug', 'published', 'description')
