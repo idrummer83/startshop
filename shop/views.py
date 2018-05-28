@@ -21,7 +21,6 @@ def productAll(request):
 
 
 def product(request, id):
-    # if id==1:
     prod_inf = {
        'prod': Product.objects.filter(id=id)
     }

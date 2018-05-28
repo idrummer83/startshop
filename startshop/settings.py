@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
     'filer',
     'easy_thumbnails',
     'ckeditor',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
 
     'shop',
     'account',
+    'sociallapp',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'startshop.urls'
@@ -74,6 +77,8 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.static',
                 'django.template.context_processors.media',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -126,9 +131,18 @@ USE_L10N = True
 USE_TZ = True
 
 
-LOGOUT_REDIRECT_URL = 'start'
-LOGIN_REDIRECT_URL = 'start'
+# LOGOUT_REDIRECT_URL = 'start'
+# LOGIN_REDIRECT_URL = 'start'
+# LOGIN_URL = 'login'
+
 LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'start'
+
+SOCIAL_AUTH_GITHUB_KEY = 'd5cb9a27679565d819bd'
+SOCIAL_AUTH_GITHUB_SECRET = '2b946c67b172f80836f5df72737466f9ccd34b16'
+
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -171,3 +185,11 @@ THUMBNAIL_ALIASES = {
         'categories': {'size': (280, 150), 'crop': True},
     },
 }
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+    'social_core.backends.twitter.TwitterOAuth',
+    'social_core.backends.facebook.FacebookOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
