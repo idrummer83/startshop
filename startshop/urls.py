@@ -14,7 +14,6 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
@@ -24,15 +23,14 @@ from account import views as accounts_views
 from django.contrib.auth import views as auth_views
 
 from shop import urls as shop_urls
-from sociallapp import urls as social_urls
 
 
 
 urlpatterns = [
     url(r'^$', start, name='start'),
+    url(r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^product/', include(shop_urls, namespace='product')),
     url(r'^signup/$', accounts_views.signup, name='signup'),
-    url(r'^social/', include(social_urls, namespace='social')),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
 
