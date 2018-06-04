@@ -27,9 +27,9 @@ from shop import urls as shop_urls
 
 
 urlpatterns = [
-    url(r'^$', start, name='start'),
+    # url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
-    url(r'^product/', include(shop_urls, namespace='product')),
+    url('', include(shop_urls)),
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
@@ -58,7 +58,7 @@ urlpatterns = [
     name='password_change_done'),
 
 
-    url(r'^category/', category, name='category'),
+    # url(r'^category/', category, name='category'),
     # url(r'^product/', product, name='product'),
     url('admin/', admin.site.urls),
 ]
