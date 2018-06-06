@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     'shop',
     'account',
+    'cart',
 ]
 
 SITE_ID = 1
@@ -179,3 +180,6 @@ THUMBNAIL_ALIASES = {
         'categories': {'size': (280, 150), 'crop': True},
     },
 }
+
+CART_SESSION_ID = 'cart'
+

@@ -18,17 +18,18 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
-from shop.views import start, category, product
 from account import views as accounts_views
 from django.contrib.auth import views as auth_views
 
 from shop import urls as shop_urls
+from cart import urls as cart_urls
 
 
 
 urlpatterns = [
     # url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
+    url('cart', include(cart_urls)),
     url('', include(shop_urls)),
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
