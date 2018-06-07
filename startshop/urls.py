@@ -27,6 +27,7 @@ from cart import urls as cart_urls
 
 
 urlpatterns = [
+    url('admin/', admin.site.urls),
     # url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url('cart', include(cart_urls)),
@@ -61,7 +62,7 @@ urlpatterns = [
 
     # url(r'^category/', category, name='category'),
     # url(r'^product/', product, name='product'),
-    url('admin/', admin.site.urls),
+
 ]
 
 if settings.DEBUG:
