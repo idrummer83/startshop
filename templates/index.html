@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load thumbnail %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name }} {% else %} Products {% endif %}
+{% endblock %}
 
 {% block content %}
     <header>
@@ -50,11 +54,12 @@
 
       <!-- Marketing Icons Section -->
       <div class="row">
-          {% for c in pCategory %}
+
+          {% for c in categories %}
         <div class="col-lg-4 mb-4">
                 <div class="card h-100">
                     <h4 class="card-header">{{ c.name }}</h4>
-                      <a href="#">
+                      <a href="{{ c.get_absolute_url }}">
                           <img src="{{ c.image|thumbnail_url:'categories' }}" alt="" />
                       </a>
                     <div class="card-body">
@@ -73,21 +78,22 @@
       <h2>Portfolio Heading</h2>
 
       <div class="row">
-
           {% for product in products %}
-              <div class="col-lg-4 col-sm-6 portfolio-item">
-                  <div class="card h-100">
-        {#            <a href="{% url('product') %}"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>#}
-                    <div class="card-body">
-                      <h4 class="card-title">
-{#                        <a href="product/{{ product.id }}">{{ product.name }}</a>#}
-                        <a href="{% url 'product:product' product.id %}">{{ product.name }}</a>
-                      </h4>
-                      <p class="card-text">{{ product.description|safe }}</p>
-                    </div>
-                  </div>
-                </div>
-          {% endfor %}
+                      <div class="col-lg-4 col-sm-6 portfolio-item">
+                        <div class="card h-100">
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{% if product.image %} {{ product.image.url }} {% else %} {% static 'img/default.png' %} {% endif %}" alt="..." style="height: 130px; width: auto">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                                </h4>
+                                <p class="text-center">Kshs. {{ product.price }}</p>
+                                <p class="card-text">{{ product.description|safe }}</p>
+                            </div>
+                        </div>
+                      </div>
+                  {% endfor %}
 
       </div>
       <!-- /.row -->
