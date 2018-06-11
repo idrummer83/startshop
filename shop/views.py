@@ -6,8 +6,8 @@ from cart.forms import CartAddProductForm
 
 def start(request):
     context = {
-        'pCategory': productCategory.objects.all(),
-        'products': Product.objects.all()
+        'categories': productCategory.objects.all(),
+        'products': Product.objects.all()[:3]
     }
     return  render(request, 'index.html', context)
 
@@ -29,8 +29,8 @@ def productAll(request, category_slug=None):
         'categories': categories,
         'products': products
     }
-    # return  render(request, 'shop/product/list.html', context)
-    return  render(request, 'index.html', context)
+    return  render(request, 'shop/product/list.html', context)
+    # return  render(request, 'index.html', context)
 
 
 def product(request, id, slug):

@@ -21,6 +21,7 @@ from django.conf.urls.static import static
 from account import views as accounts_views
 from django.contrib.auth import views as auth_views
 
+from shop.views import start
 from shop import urls as shop_urls
 from cart import urls as cart_urls
 
@@ -28,7 +29,7 @@ from cart import urls as cart_urls
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    # url(r'^$', start, name='start'),
+    url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url('cart', include(cart_urls)),
     url('', include(shop_urls)),
