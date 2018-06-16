@@ -8,11 +8,14 @@
    <div class="container">
       <div class="row" style="margin-top: 6%">
 
-        <div class="col-sm-8 blog-main">
+        <div class="col-sm-9 blog-main">
+
+          <h2>{{ category }}</h2>
+          <div>{{ category.description|safe }}</div>
 
           <div class="blog-post">
-              <div class="row">111
-                  {% for product in products %}222
+              <div class="row">
+                  {% for product in products %}
                       <div class="col-md-4">
                         <div class="thumbnail">
                             <a href="{{ product.get_absolute_url }}">
@@ -34,7 +37,7 @@
 
         </div><!-- /.blog-main -->
 
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
+        <div class="col-sm-3 blog-sidebar">
           <div class="sidebar-module">
             <h4>Categories</h4>
             <ol class="list-unstyled">
@@ -45,7 +48,7 @@
                 {% for c in categories %}
 
                   <li {% if category.slug == c.slug %} class="active"{% endif %}>
-                      <a href="{{ c.slug }}">{{ c.name }}</a>
+                      <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
                   </li>
                 {% endfor %}
             </ol>
