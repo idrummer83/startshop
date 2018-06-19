@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
     url('cart', include(cart_urls)),
+    url('orders/', include('orders.urls')),
     url('', include(shop_urls)),
     url(r'^signup/$', accounts_views.signup, name='signup'),
     url(r'^login/$', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
