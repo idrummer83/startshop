@@ -29,9 +29,9 @@ from cart import urls as cart_urls
 
 urlpatterns = [
     url('admin/', admin.site.urls),
-    url(r'^$', start, name='start'),
+    # url(r'^$', start, name='start'),
     url(r'^pages/', include('django.contrib.flatpages.urls')),
-    url('cart', include(cart_urls)),
+    url('cart/', include(cart_urls)),
     url('orders/', include('orders.urls')),
     url('', include(shop_urls)),
     url(r'^signup/$', accounts_views.signup, name='signup'),
