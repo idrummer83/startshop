@@ -11,6 +11,7 @@ django-mptt==0.8.7
 django-polymorphic==2.0.2
 django-tabbed-admin==1.0.3
 easy-thumbnails==2.5
+gunicorn==19.9.0
 idna==2.6
 Markdown==2.6.11
 MarkupSafe==1.0
