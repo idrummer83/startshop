@@ -97,19 +97,23 @@ WSGI_APPLICATION = 'startshop.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME': 'db_postgre',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-    }
-}
+import dj_database_url
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
-# DATABASE_URL = os.path.join(BASE_DIR)
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+# DATABASES = {
+#     'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        # 'NAME': 'db_postgre',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgres',
+        # 'default': dj_database_url.config(
+        #         default=config('DATABASE_URL')
+        #     )
+    # }
+# }
 
 
 # Password validation
