@@ -15,6 +15,7 @@ Markdown==2.6.11
 MarkupSafe==1.0
 oauthlib==2.1.0
 Pillow==5.1.0
+psycopg2-binary==2.7.5
 PyJWT==1.6.4
 python3-openid==3.1.0
 pytz==2018.4
